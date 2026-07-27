@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Bus, 
   ArrowRightLeft, 
@@ -40,8 +40,31 @@ const Testimonials = [
 ];
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [tripType, setTripType] = useState('one-way');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    // Simulate loading for 2 seconds
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="splash-screen">
+        <div className="loader-container">
+          <Bus size={64} className="bus-loader" color="var(--primary)" />
+          <div className="loading-text">Loading Ente KSRTC...</div>
+          <div className="progress-bar">
+            <div className="progress-fill"></div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -155,7 +178,7 @@ function App() {
           <div className="routes-grid">
             {TopRoutes.map((route, idx) => (
               <div key={idx} className="route-card">
-                <img src={route.img} alt={`${route.from} to ${route.to}`} className="route-img" />
+                <img src={route.img} alt={`${route.from} to ${route.to}`} className="route-img" loading="lazy" decoding="async" />
                 <div className="route-info">
                   <div className="route-points">
                     <div className="point">
@@ -186,7 +209,7 @@ function App() {
           <div className="destinations-grid">
             {Destinations.map((dest, idx) => (
               <div key={idx} className="dest-card">
-                <img src={dest.img} alt={dest.name} className="dest-img" />
+                <img src={dest.img} alt={dest.name} className="dest-img" loading="lazy" decoding="async" />
                 <div className="dest-overlay"></div>
                 <div className="dest-name">{dest.name}</div>
               </div>
