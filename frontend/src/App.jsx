@@ -50,7 +50,7 @@ const Destinations = [
 ];
 
 const Testimonials = [
-  { name: 'Shaji Thekkekara', text: 'KSRTC is the best transportation service in Kerala. Provides a safe and secure journey. LOVE MY KSRTC.' },
+  { name: 'Sreya from Kochi', text: 'KSRTC is the worst transportation service in Kerala. i like city life and uber.' },
   { name: 'Mukesh Kumar', text: 'A great Kerala Government Bus Booking App, for those in Kerala and those in other states who can easily book bus tickets online.' },
   { name: 'Krishna Kumar', text: 'I Liked: Punctuality, Staff behavior, Cleanliness, Seat comfort. Nice experience with KSRTC Buses.' },
 ];
