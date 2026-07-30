@@ -334,7 +334,7 @@ button {
 .hero-title-area {
   text-align: center;
   margin-bottom: 48px;
-  color: var(--white);
+  color: #f8fafc; /* Always light since overlay is dark */
   max-width: 800px;
 }
 
@@ -850,9 +850,70 @@ button {
   background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
   color: #cbd5e1;
   padding: 64px 0 40px;
-  text-align: center;
   border-top: 4px solid var(--primary);
   box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  text-align: left;
+  margin-bottom: 48px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-title {
+  color: #f8fafc;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.footer-links-grid {
+  display: flex;
+  gap: 40px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-link {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--secondary);
+}
+
+.contact-info p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.contact-info strong {
+  color: #f8fafc;
+}
+
+.mt-4 {
+  margin-top: 16px;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 24px;
+  font-size: 0.85rem;
 }
 
 /* Media Queries for Responsiveness */
@@ -961,6 +1022,11 @@ button {
     grid-template-columns: 1fr;
   }
   
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
   .section {
     padding: 64px 0;
   }
@@ -1025,5 +1091,17 @@ button {
 @keyframes loadProgress {
   0% { width: 0%; margin-left: 0; }
   50% { width: 50%; margin-left: 25%; }
-  100% { width: 0%; margin-left: 100%; }
+}
+
+/* Universal active click feedback for all buttons and interactive links */
+button:active,
+.btn-primary:active,
+.btn-secondary:active,
+.btn-primary-modern:active,
+.btn-secondary-modern:active,
+.badge-btn:active,
+.swap-btn:active,
+.book-now-link:active {
+  transform: scale(0.95) !important;
+  transition: transform 0.1s ease !important;
 }

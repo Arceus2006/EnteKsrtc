@@ -32,14 +32,14 @@ const GalleryImages = [
 ];
 
 const TopRoutes = [
-  { from: 'Trivandrum', to: 'Kanyakumari', img: 'https://images.unsplash.com/photo-1590766940554-634a7ed41450?q=80&w=600&auto=format&fit=crop' },
-  { from: 'Trivandrum', to: 'Palakkad', img: 'https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=600&auto=format&fit=crop' },
-  { from: 'Trivandrum', to: 'Palani', img: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=600&auto=format&fit=crop' },
-  { from: 'Trivandrum', to: 'Bangalore', img: 'https://images.unsplash.com/photo-1596176530529-78163a4f7af2?q=80&w=600&auto=format&fit=crop' },
-  { from: 'Trivandrum', to: 'Coimbatore', img: 'https://images.unsplash.com/photo-1621217734151-51203794bfa2?q=80&w=600&auto=format&fit=crop' },
-  { from: 'Trivandrum', to: 'Kannur', img: 'https://images.unsplash.com/photo-1634055979927-46328a6f3bdf?q=80&w=600&auto=format&fit=crop' },
-  { from: 'Trivandrum', to: 'Munnar', img: 'https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=600&auto=format&fit=crop' },
-  { from: 'Trivandrum', to: 'Mangalore', img: 'https://images.unsplash.com/photo-1555530752-6bf6a524a10e?q=80&w=600&auto=format&fit=crop' },
+  { from: 'Trivandrum', to: 'Kanyakumari', img: 'https://images.unsplash.com/photo-1590766940554-634a7ed41450?q=80&w=600&auto=format&fit=crop', duration: '2h 30m', price: '₹150' },
+  { from: 'Trivandrum', to: 'Palakkad', img: 'https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=600&auto=format&fit=crop', duration: '8h 15m', price: '₹450' },
+  { from: 'Trivandrum', to: 'Palani', img: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=600&auto=format&fit=crop', duration: '7h 00m', price: '₹380' },
+  { from: 'Trivandrum', to: 'Bangalore', img: 'https://images.unsplash.com/photo-1596176530529-78163a4f7af2?q=80&w=600&auto=format&fit=crop', duration: '14h 30m', price: '₹1200' },
+  { from: 'Trivandrum', to: 'Coimbatore', img: 'https://images.unsplash.com/photo-1621217734151-51203794bfa2?q=80&w=600&auto=format&fit=crop', duration: '9h 00m', price: '₹480' },
+  { from: 'Trivandrum', to: 'Kannur', img: 'https://images.unsplash.com/photo-1634055979927-46328a6f3bdf?q=80&w=600&auto=format&fit=crop', duration: '12h 45m', price: '₹650' },
+  { from: 'Trivandrum', to: 'Munnar', img: 'https://images.unsplash.com/photo-1593693397690-362cb9666fc2?q=80&w=600&auto=format&fit=crop', duration: '8h 30m', price: '₹420' },
+  { from: 'Trivandrum', to: 'Mangalore', img: 'https://images.unsplash.com/photo-1555530752-6bf6a524a10e?q=80&w=600&auto=format&fit=crop', duration: '15h 00m', price: '₹1400' },
 ];
 
 const Destinations = [
@@ -96,9 +96,13 @@ const TopRoutesSection = React.memo(({ routes }) => (
                   {route.to}
                 </div>
               </div>
-              <a href="#" className="book-now-link">
-                <CalendarDays size={16} /> Book Now
-              </a>
+              <div className="route-actions-right">
+                <div className="route-price">{route.price}</div>
+                <div className="route-duration">{route.duration}</div>
+                <a href="#" className="book-now-link">
+                  <CalendarDays size={16} /> Book Now
+                </a>
+              </div>
             </div>
           </div>
         ))}
@@ -236,7 +240,7 @@ function App() {
       <nav className="modern-navbar">
         <div className="navbar-container">
           <div className="nav-brand">
-            <img src="https://upload.wikimedia.org/wikipedia/en/7/7d/KSRTC_Logo.svg" alt="KSRTC" className="ksrtc-logo-small" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLWQfS0R2m1lTTNcpBqGKE8oBi2RxmC27R_wcpV3v8BQ&s=10" alt="KSRTC" className="ksrtc-logo-small" />
             <div className="brand-text-minimal">
               <span className="brand-title">Ente KSRTC</span>
               <span className="brand-tag">Premium Journey</span>
@@ -251,14 +255,14 @@ function App() {
           </div>
 
           <div className="nav-actions">
-            <button 
-              onClick={toggleTheme} 
+            <button
+              onClick={toggleTheme}
               style={{ background: 'transparent', border: 'none', color: 'var(--dark)', cursor: 'pointer', display: 'flex', alignItems: 'center' }}
             >
               {theme === 'dark' ? <Sun size={22} /> : <Moon size={22} />}
             </button>
             <div className="nav-divider"></div>
-            <img src="https://upload.wikimedia.org/wikipedia/en/c/cb/Kerala_God%27s_Own_Country_Logo.svg" alt="Kerala Tourism" className="tourism-logo-small" />
+            <img src="https://banner2.cleanpng.com/20181120/jiq/kisspng-kerala-logo-gods-own-country-vector-graphics-clip-1713920244732.webp" alt="Kerala Tourism" className="tourism-logo-small" />
             <div className="nav-divider"></div>
             <button className="btn-secondary-modern">Manage</button>
             <button className="btn-primary-modern">Login</button>
@@ -298,7 +302,7 @@ function App() {
             <p className="hero-subtitle">Safe, Reliable, and Comfortable travel across Kerala and beyond.</p>
           </div>
 
-          <BorderGlow 
+          <BorderGlow
             className="booking-widget glass-widget"
             glowColor="25 90 55"
             backgroundColor="transparent"
@@ -365,12 +369,12 @@ function App() {
             <button className="btn-primary">SEARCH BUSES</button>
           </BorderGlow>
         </div>
-        <GradualBlur 
-          target="parent" 
-          position="bottom" 
-          height="12rem" 
-          strength={4} 
-          divCount={6} 
+        <GradualBlur
+          target="parent"
+          position="bottom"
+          height="12rem"
+          strength={4}
+          divCount={6}
           curve="bezier"
           zIndex={3}
         />
@@ -396,11 +400,51 @@ function App() {
       {/* Footer */}
       <footer className="footer">
         <div className="container">
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginBottom: '16px' }}>
-            <Bus size={32} />
-            <span style={{ fontSize: '1.5rem', fontWeight: 800 }}>Ente KSRTC</span>
+          <div className="footer-grid">
+            <div className="footer-column">
+              <h3 className="footer-title">Quick Links</h3>
+              <div className="footer-links-grid">
+                <ul className="footer-links">
+                  <li><a href="#" className="footer-link">Home</a></li>
+                  <li><a href="#" className="footer-link">About us</a></li>
+                  <li><a href="#" className="footer-link">View Booking</a></li>
+                  <li><a href="#" className="footer-link">Cancellation</a></li>
+                  <li><a href="#" className="footer-link">Feedback</a></li>
+                </ul>
+                <ul className="footer-links">
+                  <li><a href="#" className="footer-link">Contact Us</a></li>
+                  <li><a href="#" className="footer-link">Gallery</a></li>
+                  <li><a href="#" className="footer-link">Privacy Policy</a></li>
+                  <li><a href="#" className="footer-link">Terms & Conditions</a></li>
+                </ul>
+              </div>
+            </div>
+            <div className="footer-column">
+              <h3 className="footer-title">Contact Us</h3>
+              <div className="contact-info">
+                <p><strong>Route Related Enquiry</strong><br />
+                  0471-2463799<br />
+                  9447071021<br />
+                  18005994011(Toll Free)<br />
+                  We Social 9497722205<br />
+                  <a href="mailto:rsnksrtc@kerala.gov.in" className="footer-link">rsnksrtc@kerala.gov.in</a></p>
+                <p className="mt-4"><strong>Technical Enquiry</strong><br />
+                  <a href="mailto:rsnksrtc@kerala.gov.in" className="footer-link">rsnksrtc@kerala.gov.in</a></p>
+              </div>
+            </div>
+            <div className="footer-column">
+              <h3 className="footer-title">Corporate Office</h3>
+              <div className="contact-info">
+                <p>Kerala, Office of Managing Director,<br />
+                  TRANSPORT BHAVAN, Fort, Trivandrum,<br />
+                  Kerala, India, Pin 695023</p>
+              </div>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" className="app-store-badge mt-4" style={{ height: '40px', cursor: 'pointer' }} />
+            </div>
           </div>
-          <p style={{ color: 'var(--gray)' }}>&copy; 2026 Ente KSRTC. All rights reserved.</p>
+          <div className="footer-bottom">
+            <p>&copy; 2026, All Rights Reserved, Kerala State Road Transport Corporation - KSRTC</p>
+          </div>
         </div>
       </footer>
     </>
