@@ -247,26 +247,32 @@ function App() {
             </div>
           </div>
 
-          <div className="nav-links-modern">
-            <a href="#" className="nav-item">Routes</a>
-            <a href="#" className="nav-item">Destinations</a>
-            <a href="#" className="nav-item">Gallery</a>
-            <a href="#" className="nav-item">Support</a>
+          <div className={`nav-menu-modern ${isMenuOpen ? 'active' : ''}`}>
+            <div className="nav-links-modern">
+              <a href="#" className="nav-item">Routes</a>
+              <a href="#" className="nav-item">Destinations</a>
+              <a href="#" className="nav-item">Gallery</a>
+              <a href="#" className="nav-item">Support</a>
+            </div>
+
+            <div className="nav-actions">
+              <button
+                onClick={toggleTheme}
+                style={{ background: 'transparent', border: 'none', color: 'var(--dark)', cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+              >
+                {theme === 'dark' ? <Sun size={22} /> : <Moon size={22} />}
+              </button>
+              <div className="nav-divider"></div>
+              <img src="https://banner2.cleanpng.com/20181120/jiq/kisspng-kerala-logo-gods-own-country-vector-graphics-clip-1713920244732.webp" alt="Kerala Tourism" className="tourism-logo-small" />
+              <div className="nav-divider"></div>
+              <button className="btn-secondary-modern">Manage</button>
+              <button className="btn-primary-modern">Login</button>
+            </div>
           </div>
 
-          <div className="nav-actions">
-            <button
-              onClick={toggleTheme}
-              style={{ background: 'transparent', border: 'none', color: 'var(--dark)', cursor: 'pointer', display: 'flex', alignItems: 'center' }}
-            >
-              {theme === 'dark' ? <Sun size={22} /> : <Moon size={22} />}
-            </button>
-            <div className="nav-divider"></div>
-            <img src="https://banner2.cleanpng.com/20181120/jiq/kisspng-kerala-logo-gods-own-country-vector-graphics-clip-1713920244732.webp" alt="Kerala Tourism" className="tourism-logo-small" />
-            <div className="nav-divider"></div>
-            <button className="btn-secondary-modern">Manage</button>
-            <button className="btn-primary-modern">Login</button>
-          </div>
+          <button className="mobile-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </div>
       </nav>
 
